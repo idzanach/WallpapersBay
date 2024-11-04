@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>WallpapersBay</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+            }
+            .wallpaper {
+                margin: 15px;
+                display: inline-block;
+            }
+            img {
+                width: 200px;
+                height: auto;
+                border-radius: 8px;
+            }
+            a {
+                display: block;
+                margin-top: 5px;
+                color: blue;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>WallpapersBay</h1>
+        <div>
+            {% for wallpaper in wallpapers %}
+            <div class="wallpaper">
+                <img
+                    src="{{ url_for('static', filename='wallpapers/' + wallpaper) }}"
+                    alt="Wallpaper"
+                />
+                <a href="{{ url_for('download', filename=wallpaper) }}" download
+                    >download</a
+                >
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
