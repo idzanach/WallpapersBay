@@ -9,6 +9,9 @@
                 font-family: Arial, sans-serif;
                 text-align: center;
             }
+            h1 {
+                font-size: 2.5em;
+            }
             .wallpaper {
                 margin: 15px;
                 display: inline-block;
@@ -23,6 +26,21 @@
                 margin-top: 5px;
                 color: blue;
                 text-decoration: none;
+            }
+            .generate-form {
+                margin-top: 50px;
+                font-size: 1.2em;
+            }
+            .generate-form input[type="text"] {
+                font-size: 1.2em;
+                padding: 10px;
+                width: 300px;
+            }
+            .generate-form button {
+                font-size: 1.2em;
+                padding: 10px 20px;
+                margin-top: 10px;
+                cursor: pointer;
             }
         </style>
     </head>
@@ -40,6 +58,20 @@
                 >
             </div>
             {% endfor %}
+        </div>
+        <div class="generate-form">
+            <form action="/generate" method="post">
+                <label for="description"
+                    >Enter a description for wallpapers</label
+                ><br />
+                <input
+                    type="text"
+                    id="description"
+                    name="description"
+                    required
+                /><br />
+                <button type="submit">generate wallpapers</button>
+            </form>
         </div>
     </body>
 </html>
